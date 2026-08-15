@@ -1,0 +1,19 @@
+﻿# Dependencies
+node_modules/
+_review/node_modules/
+
+# Local review artifacts
+_review/report.json
+_review/shots/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
