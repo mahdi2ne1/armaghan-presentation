@@ -39,7 +39,17 @@ armaghan-presentation/
     ├── ab-flat-feet.jpg
     ├── ab-intoe.jpg
     ├── ab-outtoe.jpg
-    └── ab-sitting.jpg
+    ├── ab-sitting.jpg
+    ├── m-forward-head.jpg   # عضله درگیر
+    ├── m-kyphosis.jpg
+    ├── m-swayback.jpg
+    ├── m-uneven.jpg
+    ├── m-scapula.jpg
+    ├── m-knees.jpg
+    ├── m-bow-legs.jpg
+    ├── m-flat-feet.jpg
+    ├── m-intoe.jpg
+    └── m-outtoe.jpg
 
 armaghan-presentation.zip   # بسته کامل برای دانلود
 ```
@@ -92,17 +102,17 @@ armaghan-presentation.zip   # بسته کامل برای دانلود
 |---|------------|--------|--------|
 | 1 | عنوان | `ab-class.jpg` | معرفی ارمغان + کلاس اصلاحی |
 | 2 | پیام اصلی | — | تشخیص زودهنگام |
-| 3 | سر روبه‌جلو | `ab-forward-head.jpg` | |
-| 4 | قوز پشتی | `ab-kyphosis.jpg` | |
-| 5 | گودی زیاد کمر | `ab-swayback.jpg` | |
-| 6 | شانه و لگن | `ab-uneven.jpg` | |
-| 7 | کتف باله‌ای | `ab-scapula.jpg` | |
-| 8 | پای ضربدری | `ab-knees.jpg` | |
-| 9 | پای پرانتزی | `ab-bow-legs.jpg` | ملایم، نه اغراق‌شده |
-| 10 | کف پای صاف | `ab-flat-feet.jpg` | |
-| 11 | چرخش به داخل | `ab-intoe.jpg` | |
-| 12 | چرخش به خارج | `ab-outtoe.jpg` | |
-| 13 | نشستن غلط | `ab-sitting.jpg` | عامل تشدیدکننده |
+| 3 | سر روبه‌جلو | `ab-forward-head.jpg` + `m-forward-head.jpg` | Forward Head Posture |
+| 4 | قوز پشتی | `ab-kyphosis.jpg` + `m-kyphosis.jpg` | Thoracic Kyphosis |
+| 5 | گودی زیاد کمر | `ab-swayback.jpg` + `m-swayback.jpg` | Lumbar Hyperlordosis |
+| 6 | شانه و لگن | `ab-uneven.jpg` + `m-uneven.jpg` | Shoulder / Pelvic Asymmetry |
+| 7 | کتف باله‌ای | `ab-scapula.jpg` + `m-scapula.jpg` | Scapular Winging |
+| 8 | پای ضربدری | `ab-knees.jpg` + `m-knees.jpg` | Genu Valgum |
+| 9 | پای پرانتزی | `ab-bow-legs.jpg` + `m-bow-legs.jpg` | Genu Varum |
+| 10 | کف پای صاف | `ab-flat-feet.jpg` + `m-flat-feet.jpg` | Pes Planus |
+| 11 | چرخش به داخل | `ab-intoe.jpg` + `m-intoe.jpg` | In-toeing |
+| 12 | چرخش به خارج | `ab-outtoe.jpg` + `m-outtoe.jpg` | Out-toeing |
+| 13 | نشستن غلط | `ab-sitting.jpg` | Prolonged Poor Sitting |
 | 14 | نشانه‌ها | — | چک‌لیست والدین |
 | 15 | کلاس اصلاحی | `ab-class.jpg` | تعریف کلاس |
 | 16 | ارزیابی | — | گام اول اصلاح |

@@ -96,7 +96,7 @@
       gap: clamp(1.2rem, 3vw, 2.4rem);
       align-items: stretch;
     }
-    .layout > :not(.photo) {
+    .layout > :not(.photo):not(.photos) {
       display: grid;
       align-content: center;
     }
@@ -154,6 +154,17 @@
       border-radius: .9rem;
     }
 
+    .en-name {
+      font-size: clamp(.98rem, 1.45vw, 1.18rem);
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: .02em;
+      margin: -.45rem 0 .95rem;
+      direction: ltr;
+      unicode-bidi: isolate;
+      text-align: left;
+    }
+
     .photo {
       height: 100%;
       min-height: 280px;
@@ -171,6 +182,26 @@
       display: block;
     }
     .photo.legs img { object-position: center 38%; }
+
+    .photos {
+      display: grid;
+      grid-template-rows: 1.08fr 0.92fr;
+      gap: .65rem;
+      height: 100%;
+      min-height: 280px;
+      align-self: stretch;
+    }
+    .photos .photo {
+      height: auto;
+      min-height: 0;
+    }
+    .photos .photo.muscle {
+      background: #e8f1ef;
+    }
+    .photos .photo.muscle img {
+      object-fit: contain;
+      object-position: center;
+    }
 
     .cover-bg {
       position: absolute; inset: 0;
@@ -269,6 +300,8 @@
     @media (max-width: 860px) {
       .layout { grid-template-columns: 1fr; }
       .photo { min-height: 240px; height: 42vh; order: -1; }
+      .photos { order: -1; min-height: 0; height: auto; grid-template-rows: none; grid-template-columns: 1fr 1fr; }
+      .photos .photo { height: 28vh; min-height: 140px; }
       .cover-inner { max-width: 100%; }
       :root { --hud: 4rem; }
       .stage { inset: 0 0 4rem 0; }
@@ -298,153 +331,194 @@
       </div>
     </section>
 
-    <section class="slide" data-title="سر روبه‌جلو" data-notes="علت رایج: موبایل و میز.">
+    <section class="slide" data-title="سر روبه‌جلو" data-notes="نام انگلیسی: Forward Head Posture. عضلات درگیر: Upper Trapezius و Sternocleidomastoid کوتاه می‌شوند.">
       <div class="layout">
         <div>
           <div class="brand frag" data-frag="0">ناهنجاری</div>
           <h2 class="frag" data-frag="0">سر روبه‌جلو</h2>
+          <p class="en-name frag" data-frag="0">Forward Head Posture</p>
           <ul class="points">
-            <li class="frag" data-frag="1">از کار با موبایل و صفحه‌نمایش</li>
-            <li class="frag" data-frag="2">فشار روی گردن و شانه</li>
+            <li class="frag" data-frag="1">علت: نگاه طولانی به موبایل و صفحه</li>
+            <li class="frag" data-frag="2">کوتاهی عضلات پشت گردن و شانه</li>
           </ul>
         </div>
-        <div class="photo frag" data-frag="0"><img src="assets/ab-forward-head.jpg" alt=""></div>
+        <div class="photos frag" data-frag="0">
+          <div class="photo"><img src="assets/ab-forward-head.jpg" alt=""></div>
+          <div class="photo muscle"><img src="assets/m-forward-head.jpg" alt="Upper Trapezius, Sternocleidomastoid"></div>
+        </div>
       </div>
     </section>
 
-    <section class="slide" data-title="قوز پشتی" data-notes="با تذکر حل نمی‌شود.">
+    <section class="slide" data-title="قوز پشتی" data-notes="نام انگلیسی: Thoracic Kyphosis. عضلات: Pectoralis Major کوتاه؛ Rhomboids ضعیف.">
       <div class="layout">
         <div>
           <div class="brand frag" data-frag="0">ناهنجاری</div>
           <h2 class="frag" data-frag="0">قوز پشتی</h2>
+          <p class="en-name frag" data-frag="0">Thoracic Kyphosis</p>
           <ul class="points">
-            <li class="frag" data-frag="1">انحنای زیاد ناحیه سینه‌ای</li>
-            <li class="frag" data-frag="2">نشستن طولانی و ضعف عضلات تنه</li>
+            <li class="frag" data-frag="1">علت: نشستن طولانی و خم شدن به جلو</li>
+            <li class="frag" data-frag="2">ضعف عضلات میانی پشت</li>
           </ul>
         </div>
-        <div class="photo frag" data-frag="0"><img src="assets/ab-kyphosis.jpg" alt=""></div>
+        <div class="photos frag" data-frag="0">
+          <div class="photo"><img src="assets/ab-kyphosis.jpg" alt=""></div>
+          <div class="photo muscle"><img src="assets/m-kyphosis.jpg" alt="Pectoralis Major, Rhomboids"></div>
+        </div>
       </div>
     </section>
 
-    <section class="slide" data-title="گودی زیاد کمر" data-notes="لوردوز افزایش‌یافته.">
+    <section class="slide" data-title="گودی زیاد کمر" data-notes="نام انگلیسی: Lumbar Hyperlordosis. عضلات: Iliopsoas و Erector Spinae کوتاه؛ Abdominals ضعیف.">
       <div class="layout">
         <div>
           <div class="brand frag" data-frag="0">ناهنجاری</div>
           <h2 class="frag" data-frag="0">گودی زیاد کمر</h2>
+          <p class="en-name frag" data-frag="0">Lumbar Hyperlordosis</p>
           <ul class="points">
-            <li class="frag" data-frag="1">قوس بیش‌ازحد پایین کمر</li>
-            <li class="frag" data-frag="2">اغلب با ضعف عضلات مرکزی</li>
+            <li class="frag" data-frag="1">علت: کوتاهی فلکسورهای لگن</li>
+            <li class="frag" data-frag="2">ضعف عضلات مرکزی شکم</li>
           </ul>
         </div>
-        <div class="photo frag" data-frag="0"><img src="assets/ab-swayback.jpg" alt=""></div>
+        <div class="photos frag" data-frag="0">
+          <div class="photo"><img src="assets/ab-swayback.jpg" alt=""></div>
+          <div class="photo muscle"><img src="assets/m-swayback.jpg" alt="Iliopsoas, Erector Spinae, Abdominals"></div>
+        </div>
       </div>
     </section>
 
-    <section class="slide" data-title="شانه و لگن" data-notes="کوله‌پشتی و عادت ایستادن.">
+    <section class="slide" data-title="شانه و لگن" data-notes="نام انگلیسی: Shoulder/Pelvic Asymmetry. عضله کلیدی: Quadratus Lumborum نامتقارن.">
       <div class="layout">
         <div>
           <div class="brand frag" data-frag="0">ناهنجاری</div>
           <h2 class="frag" data-frag="0">شانه و لگن نامتقارن</h2>
+          <p class="en-name frag" data-frag="0">Shoulder / Pelvic Asymmetry</p>
           <ul class="points">
-            <li class="frag" data-frag="1">یک شانه بالاتر دیده می‌شود</li>
-            <li class="frag" data-frag="2">گاهی با اسکولیوز خفیف همراه است</li>
+            <li class="frag" data-frag="1">علت: ایستادن یک‌طرفه یا کوله‌پشتی نامتوازن</li>
+            <li class="frag" data-frag="2">تن عضلانی نابرابر در دو طرف تنه</li>
           </ul>
         </div>
-        <div class="photo frag" data-frag="0"><img src="assets/ab-uneven.jpg" alt=""></div>
+        <div class="photos frag" data-frag="0">
+          <div class="photo"><img src="assets/ab-uneven.jpg" alt=""></div>
+          <div class="photo muscle"><img src="assets/m-uneven.jpg" alt="Quadratus Lumborum"></div>
+        </div>
       </div>
     </section>
 
-    <section class="slide" data-title="کتف باله‌ای" data-notes="ضعف عضلات ثبات کتف.">
+    <section class="slide" data-title="کتف باله‌ای" data-notes="نام انگلیسی: Scapular Winging. عضله اصلی: Serratus Anterior ضعیف.">
       <div class="layout">
         <div>
           <div class="brand frag" data-frag="0">ناهنجاری</div>
           <h2 class="frag" data-frag="0">کتف باله‌ای</h2>
+          <p class="en-name frag" data-frag="0">Scapular Winging</p>
           <ul class="points">
-            <li class="frag" data-frag="1">برجسته شدن لبه کتف</li>
-            <li class="frag" data-frag="2">ضعف عضلات ثبات‌دهنده شانه</li>
+            <li class="frag" data-frag="1">علت: ضعف عضله Serratus Anterior</li>
+            <li class="frag" data-frag="2">کتف به جای چسبیدن، از قفسه سینه جدا می‌شود</li>
           </ul>
         </div>
-        <div class="photo frag" data-frag="0"><img src="assets/ab-scapula.jpg" alt=""></div>
+        <div class="photos frag" data-frag="0">
+          <div class="photo"><img src="assets/ab-scapula.jpg" alt=""></div>
+          <div class="photo muscle"><img src="assets/m-scapula.jpg" alt="Serratus Anterior"></div>
+        </div>
       </div>
     </section>
 
-    <section class="slide" data-title="پای ضربدری" data-notes="روی زانو و راه رفتن اثر دارد.">
+    <section class="slide" data-title="پای ضربدری" data-notes="نام انگلیسی: Genu Valgum. عضلات: Vastus Medialis ضعیف؛ Adductors کوتاه.">
       <div class="layout">
         <div>
           <div class="brand frag" data-frag="0">ناهنجاری</div>
           <h2 class="frag" data-frag="0">پای ضربدری</h2>
+          <p class="en-name frag" data-frag="0">Genu Valgum</p>
           <ul class="points">
-            <li class="frag" data-frag="1">زانوها به هم نزدیک‌تر از قوزک‌ها</li>
-            <li class="frag" data-frag="2">تأثیر روی الگوی راه رفتن</li>
+            <li class="frag" data-frag="1">علت: ضعف عضلات داخلی ران و الگوی رشدی</li>
+            <li class="frag" data-frag="2">زانوها به هم نزدیک‌تر از قوزک‌ها</li>
           </ul>
         </div>
-        <div class="photo legs frag" data-frag="0"><img src="assets/ab-knees.jpg" alt=""></div>
+        <div class="photos frag" data-frag="0">
+          <div class="photo legs"><img src="assets/ab-knees.jpg" alt=""></div>
+          <div class="photo muscle"><img src="assets/m-knees.jpg" alt="Vastus Medialis, Adductors"></div>
+        </div>
       </div>
     </section>
 
-    <section class="slide" data-title="پای پرانتزی" data-notes="جدا از ضربدری توضیح بده.">
+    <section class="slide" data-title="پای پرانتزی" data-notes="نام انگلیسی: Genu Varum. عضلات: IT Band تنش؛ Hip Adductors ضعیف‌تر.">
       <div class="layout">
         <div>
           <div class="brand frag" data-frag="0">ناهنجاری</div>
           <h2 class="frag" data-frag="0">پای پرانتزی</h2>
+          <p class="en-name frag" data-frag="0">Genu Varum</p>
           <ul class="points">
-            <li class="frag" data-frag="1">فاصله زیاد بین زانوها</li>
-            <li class="frag" data-frag="2">گاهی با سایش غیرطبیعی کفش</li>
+            <li class="frag" data-frag="1">علت: الگوی رشدی یا عدم‌تعادل عضلانی زانو</li>
+            <li class="frag" data-frag="2">فاصله زیاد بین زانوها</li>
           </ul>
         </div>
-        <div class="photo legs frag" data-frag="0"><img src="assets/ab-bow-legs.jpg" alt=""></div>
+        <div class="photos frag" data-frag="0">
+          <div class="photo legs"><img src="assets/ab-bow-legs.jpg" alt=""></div>
+          <div class="photo muscle"><img src="assets/m-bow-legs.jpg" alt="Tensor Fasciae Latae, Hip Adductors"></div>
+        </div>
       </div>
     </section>
 
-    <section class="slide" data-title="کف پای صاف" data-notes="همیشه مشکل نیست.">
+    <section class="slide" data-title="کف پای صاف" data-notes="نام انگلیسی: Pes Planus. عضله کلیدی: Tibialis Posterior ضعیف.">
       <div class="layout">
         <div>
           <div class="brand frag" data-frag="0">ناهنجاری</div>
           <h2 class="frag" data-frag="0">کف پای صاف</h2>
+          <p class="en-name frag" data-frag="0">Pes Planus</p>
           <ul class="points">
-            <li class="frag" data-frag="1">کاهش قوس طبیعی کف پا</li>
-            <li class="frag" data-frag="2">ممکن است روی زانو و لگن اثر بگذارد</li>
+            <li class="frag" data-frag="1">علت: ضعف Tibialis Posterior یا شلی لیگامان</li>
+            <li class="frag" data-frag="2">کاهش قوس طبیعی کف پا</li>
           </ul>
         </div>
-        <div class="photo frag" data-frag="0"><img src="assets/ab-flat-feet.jpg" alt=""></div>
+        <div class="photos frag" data-frag="0">
+          <div class="photo"><img src="assets/ab-flat-feet.jpg" alt=""></div>
+          <div class="photo muscle"><img src="assets/m-flat-feet.jpg" alt="Tibialis Posterior"></div>
+        </div>
       </div>
     </section>
 
-    <section class="slide" data-title="چرخش به داخل" data-notes="الگوی راه رفتن.">
+    <section class="slide" data-title="چرخش به داخل" data-notes="نام انگلیسی: In-toeing. عضلات: Hip Internal Rotators کوتاه؛ Gluteus Maximus ضعیف.">
       <div class="layout">
         <div>
           <div class="brand frag" data-frag="0">ناهنجاری</div>
           <h2 class="frag" data-frag="0">چرخش پا به داخل</h2>
+          <p class="en-name frag" data-frag="0">In-toeing</p>
           <ul class="points">
-            <li class="frag" data-frag="1">پنجه پا هنگام راه رفتن روبه‌داخل است</li>
-            <li class="frag" data-frag="2">در کودکان شایع و قابل بررسی است</li>
+            <li class="frag" data-frag="1">علت: چرخش داخلی ران یا درشت‌نی</li>
+            <li class="frag" data-frag="2">ضعف عضلات چرخش‌دهنده خارجی لگن</li>
           </ul>
         </div>
-        <div class="photo frag" data-frag="0"><img src="assets/ab-intoe.jpg" alt=""></div>
+        <div class="photos frag" data-frag="0">
+          <div class="photo"><img src="assets/ab-intoe.jpg" alt=""></div>
+          <div class="photo muscle"><img src="assets/m-intoe.jpg" alt="Hip Internal Rotators, Gluteus Maximus"></div>
+        </div>
       </div>
     </section>
 
-    <section class="slide" data-title="چرخش به خارج" data-notes="الگوی راه رفتن.">
+    <section class="slide" data-title="چرخش به خارج" data-notes="نام انگلیسی: Out-toeing. عضلات: Piriformis و Hip External Rotators کوتاه.">
       <div class="layout">
         <div>
           <div class="brand frag" data-frag="0">ناهنجاری</div>
           <h2 class="frag" data-frag="0">چرخش پا به خارج</h2>
+          <p class="en-name frag" data-frag="0">Out-toeing</p>
           <ul class="points">
-            <li class="frag" data-frag="1">پنجه پا هنگام ایستادن یا راه رفتن روبه‌خارج است</li>
-            <li class="frag" data-frag="2">گاهی با ضعف عضلانی یا عادت حرکتی مرتبط است</li>
+            <li class="frag" data-frag="1">علت: چرخش خارجی ران یا عادت حرکتی</li>
+            <li class="frag" data-frag="2">کوتاهی عضلات چرخش‌دهنده خارجی لگن</li>
           </ul>
         </div>
-        <div class="photo frag" data-frag="0"><img src="assets/ab-outtoe.jpg" alt=""></div>
+        <div class="photos frag" data-frag="0">
+          <div class="photo"><img src="assets/ab-outtoe.jpg" alt=""></div>
+          <div class="photo muscle"><img src="assets/m-outtoe.jpg" alt="Piriformis, Hip External Rotators"></div>
+        </div>
       </div>
     </section>
 
-    <section class="slide" data-title="نشستن غلط" data-notes="عادت روزانه.">
+    <section class="slide" data-title="نشستن غلط" data-notes="نام انگلیسی: Prolonged Poor Sitting. عامل تشدیدکننده؛ عادت روزانه.">
       <div class="layout">
         <div>
           <div class="brand frag" data-frag="0">عامل تشدیدکننده</div>
           <h2 class="frag" data-frag="0">نشستن طولانی و غلط</h2>
+          <p class="en-name frag" data-frag="0">Prolonged Poor Sitting</p>
           <ul class="points">
-            <li class="frag" data-frag="1">میز و صندلی نامتناسب</li>
+            <li class="frag" data-frag="1">علت: میز و صندلی نامتناسب</li>
             <li class="frag" data-frag="2">ساعت‌ها خم شدن روی درس یا تبلت</li>
           </ul>
         </div>
