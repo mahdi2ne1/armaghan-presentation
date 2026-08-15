@@ -214,6 +214,11 @@
         linear-gradient(105deg, rgba(10,34,32,.82) 0%, rgba(10,34,32,.48) 55%, rgba(10,34,32,.26) 100%),
         url("assets/ab-class.jpg") center/cover no-repeat;
     }
+    .cover-bg.dense {
+      background:
+        linear-gradient(105deg, rgba(10,34,32,.88) 0%, rgba(10,34,32,.72) 52%, rgba(10,34,32,.48) 100%),
+        url("assets/ab-class.jpg") center/cover no-repeat;
+    }
     .cover-inner {
       position: relative; z-index: 1;
       height: 100%;
@@ -223,6 +228,84 @@
       max-width: 18ch;
     }
     .cover-inner.wide { max-width: 24ch; }
+    .cover-inner.bio { max-width: min(42rem, 92vw); }
+
+    .presenter {
+      margin-top: 1.35rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid rgba(154, 223, 211, .32);
+      max-width: 34ch;
+    }
+    .presenter-name {
+      font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+      font-weight: 800;
+      color: #f4fffb;
+      line-height: 1.35;
+    }
+    .presenter-role {
+      font-size: clamp(1.02rem, 1.55vw, 1.18rem);
+      font-weight: 700;
+      color: #9adfd3;
+      margin-top: .4rem;
+      line-height: 1.6;
+    }
+    .presenter-meta {
+      font-size: clamp(.95rem, 1.35vw, 1.08rem);
+      font-weight: 600;
+      color: rgba(244, 255, 251, .78);
+      margin-top: .55rem;
+      line-height: 1.7;
+    }
+
+    .creds {
+      list-style: none;
+      display: grid;
+      gap: .42rem;
+      margin-top: 1rem;
+      max-width: 46ch;
+    }
+    .creds li {
+      font-size: clamp(1rem, 1.45vw, 1.16rem);
+      font-weight: 700;
+      color: rgba(244, 255, 251, .92);
+      line-height: 1.55;
+    }
+    .creds .label {
+      display: block;
+      font-size: .82em;
+      font-weight: 700;
+      color: #9adfd3;
+      margin-bottom: .12rem;
+    }
+
+    .contact {
+      margin-top: 1.15rem;
+      display: grid;
+      gap: .45rem;
+    }
+    .contact span {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: flex-start;
+      gap: .35rem .55rem;
+      font-size: clamp(1.05rem, 1.55vw, 1.22rem);
+      font-weight: 700;
+      color: #9adfd3;
+    }
+    .contact .handle {
+      direction: ltr;
+      unicode-bidi: isolate;
+      color: #f4fffb;
+    }
+    .contact .fa-label {
+      color: rgba(244, 255, 251, .72);
+      font-size: .92em;
+      font-weight: 700;
+    }
+    .contact .fa-label::after {
+      content: ":";
+    }
 
     /* Text / fragment motion only */
     .frag {
@@ -303,6 +386,13 @@
       .photos { order: -1; min-height: 0; height: auto; grid-template-rows: none; grid-template-columns: 1fr 1fr; }
       .photos .photo { height: 28vh; min-height: 140px; }
       .cover-inner { max-width: 100%; }
+      .cover-inner.bio {
+        align-content: start;
+        padding-top: clamp(1.2rem, 4vh, 2rem);
+        padding-bottom: .5rem;
+        overflow: auto;
+      }
+      .creds li { font-size: clamp(.95rem, 3.4vw, 1.05rem); }
       :root { --hud: 4rem; }
       .stage { inset: 0 0 4rem 0; }
     }
@@ -313,12 +403,17 @@
   <div class="bar"><i id="bar"></i></div>
   <div class="stage" id="stage">
 
-    <section class="slide cover active" data-title="عنوان" data-notes="سلام کوتاه و معرفی.">
+    <section class="slide cover active" data-title="عنوان" data-notes="سلام کوتاه؛ خودت را با تخصص اصلاحی معرفی کن. رزومه کامل برای اسلاید آخر است.">
       <div class="cover-bg"></div>
-      <div class="cover-inner">
+      <div class="cover-inner bio">
         <div class="brand frag" data-frag="0">مجموعه ورزشی ارمغان</div>
         <h1 class="frag" data-frag="0">کلاس اصلاحی کودکان</h1>
         <p class="lead frag" data-frag="1" style="margin-top:1rem">ارزیابی و اصلاح ناهنجاری‌های قامتی</p>
+        <div class="presenter frag" data-frag="2">
+          <div class="presenter-name">محیا یاری</div>
+          <div class="presenter-role">کارشناس ارشد آسیب‌شناسی و حرکات اصلاحی · مدرس دانشگاه</div>
+          <div class="presenter-meta">دبیر انجمن علمی علوم ورزشی · مربی و داور جودو و دفاع شخصی · قهرمان کشور جودو</div>
+        </div>
       </div>
     </section>
 
@@ -631,12 +726,32 @@
       </div>
     </section>
 
-    <section class="slide cover" data-title="دعوت نهایی" data-notes="دعوت به ارزیابی در ارمغان.">
-      <div class="cover-bg"></div>
-      <div class="cover-inner wide">
-        <div class="brand frag" data-frag="0">مجموعه ورزشی ارمغان</div>
-        <h1 class="frag" data-frag="0">ارزیابی کوتاه، مسیر روشن</h1>
-        <p class="lead frag" data-frag="1" style="margin-top:1rem">برای کلاس اصلاحی کودکان از پذیرش مجموعه راهنمایی بگیرید.</p>
+    <section class="slide cover" data-title="دعوت نهایی" data-notes="رزومه را خلاصه بگو؛ بعد شماره و اینستاگرام را برای ارتباط اعلام کن و دعوت به ارزیابی کن.">
+      <div class="cover-bg dense"></div>
+      <div class="cover-inner bio">
+        <div class="brand frag" data-frag="0">مجموعه ورزشی ارمغان · کلاس اصلاحی کودکان</div>
+        <h1 class="frag" data-frag="0">محیا یاری</h1>
+        <p class="lead frag" data-frag="0" style="margin-top:.55rem;max-width:34ch">کارشناس ارشد آسیب‌شناسی و حرکات اصلاحی</p>
+        <ul class="creds">
+          <li class="frag" data-frag="1">
+            <span class="label">تحصیلات و تدریس</span>
+            مدرس دانشگاه · دبیر انجمن علمی دانشجویان علوم ورزشی دانشگاه آزاد اسلامی واحد مشهد
+          </li>
+          <li class="frag" data-frag="1">
+            <span class="label">جودو و دفاع شخصی</span>
+            مربی جودو و دفاع شخصی · داور درجه ۲ جودو و درجه ۳ دفاع شخصی · دان ۲ جودو · دان ۳ دفاع شخصی · قهرمان کشور جودو · قهرمان استان جودو و دفاع شخصی
+          </li>
+          <li class="frag" data-frag="2">
+            <span class="label">سایر مربیگری</span>
+            سالمندان · بدنسازی · بازی و ورزش کودک · بوچیا · ایروبیک · ژیمناستیک · ماساژ
+          </li>
+        </ul>
+        <p class="lead frag" data-frag="3" style="margin-top:1.1rem;max-width:32ch">برای ارزیابی کوتاه و مسیر اصلاح، پیام دهید.</p>
+        <div class="contact frag" data-frag="3">
+          <span><span class="fa-label">تماس</span><span class="handle">0992 490 7798</span></span>
+          <span><span class="fa-label">اینستاگرام</span><span class="handle">@mahya___yari</span></span>
+          <span><span class="fa-label">ایتا · روبیکا · تلگرام</span><span class="handle">Mahya_Yari1380@</span></span>
+        </div>
       </div>
     </section>
 
