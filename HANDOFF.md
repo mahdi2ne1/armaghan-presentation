@@ -103,7 +103,7 @@ armaghan-presentation.zip   # بسته کامل برای دانلود
 | # | data-title | تصویر | موضوع |
 |---|------------|--------|--------|
 | 1 | عنوان | `ab-class.jpg` | معرفی ارمغان + کلاس اصلاحی + نام مدرس |
-| 2 | رزومه | `presenter-desk.jpg` | اسلاید رزومه محیا یاری (چیدمان مدرن، تم تیره) |
+| 2 | رزومه | `presenter.jpg` | اسلاید رزومه محیا یاری (پرتره رسمی؛ `presenter-desk.jpg` نگه داشته شده) |
 | 3 | پیام اصلی | — | تشخیص زودهنگام |
 | 4 | سر روبه‌جلو | `ab-forward-head.jpg` + `m-forward-head.jpg` | Forward Head Posture |
 | 5 | قوز پشتی | `ab-kyphosis.jpg` + `m-kyphosis.jpg` | Thoracic Kyphosis |
@@ -135,7 +135,7 @@ armaghan-presentation.zip   # بسته کامل برای دانلود
 - `.photos` = دو قاب عمودی (وضعیت بالا، عضله پایین با `.photo.muscle`)
 - `.en-name` = نام تخصصی انگلیسی زیر عنوان فارسی
 - `.slide.resume` = اسلاید رزومه (متن تیره + عکس تمام‌قد)
-- `.resume-photo` = عکس مدرس (`assets/presenter-desk.jpg`؛ پرتره در `assets/presenter.jpg` نگه داشته شده)
+- `.resume-photo` = عکس مدرس (`assets/presenter.jpg`؛ عکس میز در `assets/presenter-desk.jpg` نگه داشته شده)
 
 ---
 
@@ -192,7 +192,7 @@ armaghan-presentation.zip   # بسته کامل برای دانلود
 به ترتیب اولویت:
 
 1. **با Chrome باز کنید و کل ۲۳ اسلاید را مرور کنید** (خوانایی متن، برش عکس، کنتراست).
-2. اگر عکس رزومه دیگری مدنظر است → `assets/presenter-desk.jpg` را عوض کنید؛ `assets/presenter.jpg` پرترهٔ رسمی است و حذف نشود.
+2. اگر عکس رزومه دیگری مدنظر است → `assets/presenter.jpg` را عوض کنید؛ `assets/presenter-desk.jpg` عکس میز است و حذف نشود.
 3. اگر عکس واقعی کلینیکی/کلاس (با رضایت) آمد → فقط `src` همان اسلاید را عوض کنید؛ قوانین طراحی را نشکنید.
 4. در صورت نیاز: export به PDF از چاپ مرورگر، یا کپی ساختار به Canva — **الزام نیست**.
 5. فونت آفلاین: Vazirmatn را محلی کنید اگر ارائه بدون اینترنت است.

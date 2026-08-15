@@ -353,7 +353,7 @@
       height: 100%;
       min-height: 0;
       display: grid;
-      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
       overflow: hidden;
     }
     .resume-copy {
@@ -432,23 +432,26 @@
       position: relative;
       min-width: 0;
       min-height: 0;
-      background: #071110;
+      background:
+        radial-gradient(120% 80% at 50% 18%, #ffe36a 0%, #f5c518 42%, #e0a80a 100%);
+      display: grid;
+      place-items: center;
       overflow: hidden;
     }
     .resume-photo {
-      width: 100%;
-      height: 100%;
-      border-radius: 0;
+      width: min(68%, 22rem);
+      aspect-ratio: 1;
+      border-radius: 1.35rem;
       overflow: hidden;
-      background: #071110;
-      border: 0;
-      box-shadow: none;
+      background: #1a1a1a;
+      border: 7px solid #fff;
+      box-shadow: 0 22px 48px rgba(18, 20, 8, .28);
     }
     .resume-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 78% 32%;
+      object-position: center 16%;
       display: block;
     }
 
@@ -564,16 +567,15 @@
       .cover-inner { max-width: calc(100% - .5rem); }
       .resume-layout {
         grid-template-columns: 1fr;
-        grid-template-rows: minmax(0, .62fr) minmax(0, 1.38fr);
+        grid-template-rows: minmax(0, .52fr) minmax(0, 1.48fr);
       }
       .resume-visual { order: -1; }
       .resume-photo {
-        width: 100%;
-        height: 100%;
-        border-width: 0;
-        border-radius: 0;
+        width: min(28vh, 168px);
+        border-width: 4px;
+        border-radius: .95rem;
       }
-      .resume-photo img { object-position: 70% 28%; }
+      .resume-photo img { object-position: center 16%; }
       .resume-copy {
         align-content: start;
         padding: .55rem .85rem .45rem;
@@ -653,7 +655,7 @@
           </div>
         </div>
         <div class="resume-visual frag" data-frag="0">
-          <div class="resume-photo"><img src="assets/presenter-desk.jpg" alt="محیا یاری"></div>
+          <div class="resume-photo"><img src="assets/presenter.jpg" alt="محیا یاری"></div>
         </div>
       </div>
     </section>
