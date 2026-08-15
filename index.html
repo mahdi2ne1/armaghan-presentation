@@ -47,19 +47,41 @@
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
-      transform: translateX(-2.5%);
       transition:
-        opacity .5s cubic-bezier(.22,1,.36,1),
-        transform .5s cubic-bezier(.22,1,.36,1),
-        visibility .5s;
+        opacity .58s cubic-bezier(.22,1,.36,1),
+        transform .62s cubic-bezier(.22,1,.36,1),
+        clip-path .62s cubic-bezier(.22,1,.36,1),
+        filter .58s cubic-bezier(.22,1,.36,1),
+        visibility .62s;
       display: grid;
       padding: clamp(1.4rem, 3.2vw, 2.6rem);
     }
     .slide.active {
       opacity: 1; visibility: visible; pointer-events: auto;
-      transform: none; z-index: 2;
+      transform: none;
+      clip-path: inset(0);
+      filter: none;
+      z-index: 2;
     }
-    .slide.from-prev { transform: translateX(2.5%); }
+
+    /* Four restrained slide transitions, rotated through the deck */
+    .slide.tr-soft:not(.active) { transform: translateX(-3%) scale(.995); }
+    .slide.tr-soft.from-prev:not(.active) { transform: translateX(3%) scale(.995); }
+
+    .slide.tr-rise:not(.active) { transform: translateY(2.8%) scale(.99); }
+    .slide.tr-rise.from-prev:not(.active) { transform: translateY(-2.8%) scale(.99); }
+
+    .slide.tr-focus:not(.active) { transform: scale(1.025); filter: blur(5px); }
+    .slide.tr-focus.from-prev:not(.active) { transform: scale(.975); filter: blur(5px); }
+
+    .slide.tr-reveal:not(.active) {
+      transform: translateX(-1%);
+      clip-path: inset(0 0 0 6%);
+    }
+    .slide.tr-reveal.from-prev:not(.active) {
+      transform: translateX(1%);
+      clip-path: inset(0 6% 0 0);
+    }
 
     .slide.cover {
       padding: 0;
@@ -72,12 +94,19 @@
       display: grid;
       grid-template-columns: minmax(280px, 0.92fr) minmax(300px, 1.08fr);
       gap: clamp(1.2rem, 3vw, 2.4rem);
-      align-items: center;
+      align-items: stretch;
+    }
+    .layout > :not(.photo) {
+      display: grid;
+      align-content: center;
     }
     .layout.solo {
       grid-template-columns: 1fr;
       place-items: center;
       text-align: center;
+    }
+    .layout.solo > :not(.photo) {
+      display: block;
     }
 
     .brand {
@@ -126,12 +155,13 @@
     }
 
     .photo {
-      height: min(72vh, 100%);
+      height: 100%;
       min-height: 280px;
       border-radius: 1.2rem;
       overflow: hidden;
       background: #dfecea;
       border: 1px solid var(--line);
+      align-self: stretch;
     }
     .photo img {
       width: 100%;
@@ -140,16 +170,17 @@
       object-position: center;
       display: block;
     }
+    .photo.legs img { object-position: center 38%; }
 
     .cover-bg {
       position: absolute; inset: 0;
       background:
-        linear-gradient(105deg, rgba(10,34,32,.88) 0%, rgba(10,34,32,.55) 48%, rgba(10,34,32,.35) 100%),
-        url("assets/ab-hero.jpg") center/cover no-repeat;
+        linear-gradient(105deg, rgba(10,34,32,.78) 0%, rgba(10,34,32,.48) 48%, rgba(10,34,32,.28) 100%),
+        url("assets/ab-class.jpg") center/cover no-repeat;
     }
     .cover-bg.class {
       background:
-        linear-gradient(105deg, rgba(10,34,32,.86) 0%, rgba(10,34,32,.5) 55%, rgba(10,34,32,.28) 100%),
+        linear-gradient(105deg, rgba(10,34,32,.82) 0%, rgba(10,34,32,.48) 55%, rgba(10,34,32,.26) 100%),
         url("assets/ab-class.jpg") center/cover no-repeat;
     }
     .cover-inner {
@@ -166,11 +197,26 @@
     .frag {
       opacity: 0;
       transform: translateY(14px);
-      transition: opacity .45s cubic-bezier(.22,1,.36,1), transform .45s cubic-bezier(.22,1,.36,1);
+      transition:
+        opacity .48s cubic-bezier(.22,1,.36,1),
+        transform .52s cubic-bezier(.22,1,.36,1),
+        filter .48s cubic-bezier(.22,1,.36,1);
     }
+    .tr-soft .frag:not(.show) { transform: translateX(18px); }
+    .tr-rise .frag:not(.show) { transform: translateY(18px); }
+    .tr-focus .frag:not(.show) { transform: scale(.97); filter: blur(3px); }
+    .tr-reveal .frag:not(.show) { transform: translateX(-16px); }
     .frag.show {
       opacity: 1;
       transform: none;
+      filter: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .slide, .frag {
+        transition-duration: .01ms !important;
+        filter: none !important;
+      }
     }
 
     .hud {
@@ -280,7 +326,7 @@
       </div>
     </section>
 
-    <section class="slide" data-title="گودی کمر" data-notes="لوردوز افزایش‌یافته.">
+    <section class="slide" data-title="گودی زیاد کمر" data-notes="لوردوز افزایش‌یافته.">
       <div class="layout">
         <div>
           <div class="brand frag" data-frag="0">ناهنجاری</div>
@@ -294,7 +340,7 @@
       </div>
     </section>
 
-    <section class="slide" data-title="شانه نامتقارن" data-notes="کوله‌پشتی و عادت ایستادن.">
+    <section class="slide" data-title="شانه و لگن" data-notes="کوله‌پشتی و عادت ایستادن.">
       <div class="layout">
         <div>
           <div class="brand frag" data-frag="0">ناهنجاری</div>
@@ -332,7 +378,7 @@
             <li class="frag" data-frag="2">تأثیر روی الگوی راه رفتن</li>
           </ul>
         </div>
-        <div class="photo frag" data-frag="0"><img src="assets/ab-knees.jpg" alt=""></div>
+        <div class="photo legs frag" data-frag="0"><img src="assets/ab-knees.jpg" alt=""></div>
       </div>
     </section>
 
@@ -346,7 +392,7 @@
             <li class="frag" data-frag="2">گاهی با سایش غیرطبیعی کفش</li>
           </ul>
         </div>
-        <div class="photo frag" data-frag="0"><img src="assets/ab-bow-legs.jpg" alt=""></div>
+        <div class="photo legs frag" data-frag="0"><img src="assets/ab-bow-legs.jpg" alt=""></div>
       </div>
     </section>
 
@@ -364,7 +410,7 @@
       </div>
     </section>
 
-    <section class="slide" data-title="پاهای روبه‌داخل" data-notes="الگوی راه رفتن.">
+    <section class="slide" data-title="چرخش به داخل" data-notes="الگوی راه رفتن.">
       <div class="layout">
         <div>
           <div class="brand frag" data-frag="0">ناهنجاری</div>
@@ -378,7 +424,7 @@
       </div>
     </section>
 
-    <section class="slide" data-title="پاهای روبه‌خارج" data-notes="الگوی راه رفتن.">
+    <section class="slide" data-title="چرخش به خارج" data-notes="الگوی راه رفتن.">
       <div class="layout">
         <div>
           <div class="brand frag" data-frag="0">ناهنجاری</div>
@@ -422,7 +468,7 @@
       </div>
     </section>
 
-    <section class="slide cover" data-title="کلاس اصلاحی" data-notes="تعریف کوتاه کلاس.">
+    <section class="slide cover" data-title="کلاس اصلاحی" data-notes="تعریف کوتاه کلاس؛ بعد وارد جزئیات اصلاح شو.">
       <div class="cover-bg class"></div>
       <div class="cover-inner wide">
         <div class="brand frag" data-frag="0">راه‌حل</div>
@@ -432,6 +478,72 @@
           <li class="frag" data-frag="2">تمرین هدفمند قامتی</li>
           <li class="frag" data-frag="3">همراهی خانواده</li>
         </ul>
+      </div>
+    </section>
+
+    <section class="slide" data-title="ارزیابی" data-notes="اول نگاه، بعد برنامه.">
+      <div class="layout solo">
+        <div>
+          <div class="brand frag" data-frag="0">گام اول</div>
+          <h1 class="frag" data-frag="1" style="max-width:14ch;margin-inline:auto">ارزیابی قامتی کودک</h1>
+          <ul class="points" style="margin-top:1.2rem;max-width:34ch;margin-inline:auto;text-align:right">
+            <li class="frag" data-frag="2">بررسی ایستادن، راه رفتن و نشستن</li>
+            <li class="frag" data-frag="3">شناسایی نقاط ضعف و الگوی غلط</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="برنامه شخصی" data-notes="هر کودک نسخه خودش را دارد.">
+      <div class="layout solo">
+        <div>
+          <div class="brand frag" data-frag="0">اصلاح</div>
+          <h1 class="frag" data-frag="1" style="max-width:16ch;margin-inline:auto">برنامه برای همان کودک</h1>
+          <ul class="points" style="margin-top:1.2rem;max-width:34ch;margin-inline:auto;text-align:right">
+            <li class="frag" data-frag="2">نه تمرین عمومی برای همه</li>
+            <li class="frag" data-frag="3">تمرکز روی نیاز واقعی قامت او</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="تمرین در کلاس" data-notes="کوتاه بگو جلسه چه شکلی است.">
+      <div class="layout">
+        <div>
+          <div class="brand frag" data-frag="0">اصلاح</div>
+          <h2 class="frag" data-frag="0">در کلاس چه می‌کنیم؟</h2>
+          <ul class="points">
+            <li class="frag" data-frag="1">تقویت عضلات ثبات‌دهنده</li>
+            <li class="frag" data-frag="2">اصلاح الگوی ایستادن و حرکت</li>
+          </ul>
+        </div>
+        <div class="photo frag" data-frag="0"><img src="assets/ab-class.jpg" alt=""></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="نقش والدین" data-notes="بدون خانه، نتیجه کندتر است.">
+      <div class="layout solo">
+        <div>
+          <div class="brand frag" data-frag="0">اصلاح</div>
+          <h1 class="frag" data-frag="1" style="max-width:16ch;margin-inline:auto">تمرین کوتاه در خانه</h1>
+          <ul class="points" style="margin-top:1.2rem;max-width:34ch;margin-inline:auto;text-align:right">
+            <li class="frag" data-frag="2">چند حرکت ساده و منظم</li>
+            <li class="frag" data-frag="3">همراهی والدین، نه فشار زیاد</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="تداوم" data-notes="انتظارات واقعی بساز.">
+      <div class="layout solo">
+        <div>
+          <div class="brand frag" data-frag="0">اصلاح</div>
+          <h1 class="frag" data-frag="1" style="max-width:16ch;margin-inline:auto">نتیجه با تداوم می‌آید</h1>
+          <ul class="points" style="margin-top:1.2rem;max-width:34ch;margin-inline:auto;text-align:right">
+            <li class="frag" data-frag="2">تغییر قامت یک‌شبه نیست</li>
+            <li class="frag" data-frag="3">پیگیری منظم، اثر پایدارتر</li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -466,7 +578,7 @@
   <div class="hud" id="hud">
     <div class="g">
       <button type="button" id="prev">قبلی</button>
-      <div class="counter" id="counter">۱ از ۱۷</div>
+      <div class="counter" id="counter">۱ از ۲۲</div>
       <button type="button" id="next">بعدی</button>
     </div>
     <div class="g">
@@ -481,6 +593,8 @@
 <script>
 (() => {
   const slides = [...document.querySelectorAll(".slide")];
+  const transitions = ["tr-focus", "tr-rise", "tr-soft", "tr-reveal"];
+  slides.forEach((slide, idx) => slide.classList.add(transitions[idx % transitions.length]));
   const bar = document.getElementById("bar");
   const counter = document.getElementById("counter");
   const notesPanel = document.getElementById("notesPanel");
