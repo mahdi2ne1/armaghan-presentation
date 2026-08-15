@@ -39,7 +39,7 @@
       transition: width .45s cubic-bezier(.22,1,.36,1);
     }
 
-    .stage { position: absolute; inset: 0 0 var(--hud) 0; overflow: hidden; }
+    .stage { position: absolute; inset: 0 0 var(--hud) 0; overflow: hidden; transition: inset .25s; }
 
     .slide {
       position: absolute; inset: 0;
@@ -478,13 +478,27 @@
       }
     }
 
+    .app:has(.hud.hidden) .stage { inset: 0; }
+    html:fullscreen,
+    html:-webkit-full-screen {
+      background: var(--dark);
+      width: 100%;
+      height: 100%;
+    }
+    html:fullscreen .app,
+    html:-webkit-full-screen .app {
+      width: 100%;
+      height: 100%;
+    }
+
     .hud {
       position: absolute; left: 0; right: 0; bottom: 0; height: var(--hud);
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 .8rem; gap: .5rem;
       background: rgba(10,34,32,.96); color: #e9fff9; z-index: 40;
+      transition: transform .25s, opacity .25s;
     }
-    .hud.hidden { transform: translateY(110%); opacity: 0; pointer-events: none; transition: .25s; }
+    .hud.hidden { transform: translateY(110%); opacity: 0; pointer-events: none; }
     .g { display: flex; align-items: center; gap: .4rem; }
     .hud button {
       background: rgba(255,255,255,.1); color: inherit;
@@ -987,6 +1001,7 @@
       <button type="button" id="btnTimer">تایمر</button>
       <button type="button" id="btnNotes">یادداشت</button>
       <button type="button" id="btnOv">فهرست</button>
+      <button type="button" id="btnFs" title="F">تمام‌صفحه</button>
     </div>
   </div>
 </div>
@@ -1097,6 +1112,29 @@
     }
   }
 
+  const btnFs = document.getElementById("btnFs");
+  const fsEl = () => document.fullscreenElement || document.webkitFullscreenElement || null;
+  function syncFs() {
+    const on = !!fsEl();
+    btnFs.classList.toggle("on", on);
+    btnFs.textContent = on ? "خروج" : "تمام‌صفحه";
+  }
+  async function toggleFullscreen() {
+    try {
+      if (fsEl()) {
+        if (document.exitFullscreen) await document.exitFullscreen();
+        else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+      } else {
+        const root = document.documentElement;
+        if (root.requestFullscreen) await root.requestFullscreen({ navigationUI: "hide" });
+        else if (root.webkitRequestFullscreen) root.webkitRequestFullscreen();
+      }
+    } catch (_) { /* نیاز به ژست کاربر؛ نادیده */ }
+    syncFs();
+  }
+  document.addEventListener("fullscreenchange", syncFs);
+  document.addEventListener("webkitfullscreenchange", syncFs);
+
   document.getElementById("next").onclick = next;
   document.getElementById("prev").onclick = prev;
   document.getElementById("btnNotes").onclick = () => {
@@ -1109,20 +1147,27 @@
     if (overview.classList.contains("open")) buildOv();
   };
   document.getElementById("btnTimer").onclick = toggleTimer;
+  btnFs.onclick = toggleFullscreen;
 
   window.addEventListener("keydown", e => {
     const k = e.key;
-    if (k === "Escape") { overview.classList.remove("open"); notesPanel.classList.remove("open"); notesOn = false; return; }
+    if (k === "Escape") {
+      if (overview.classList.contains("open") || notesPanel.classList.contains("open")) {
+        overview.classList.remove("open");
+        notesPanel.classList.remove("open");
+        notesOn = false;
+        document.getElementById("btnNotes").classList.remove("on");
+        e.preventDefault();
+      }
+      return;
+    }
     if ([" ", "ArrowLeft", "PageDown", "Enter", "ArrowDown"].includes(k)) { e.preventDefault(); next(); }
     else if (["ArrowRight", "PageUp", "Backspace", "ArrowUp"].includes(k)) { e.preventDefault(); prev(); }
     else if (k === "n" || k === "N") document.getElementById("btnNotes").click();
     else if (k === "o" || k === "O") document.getElementById("btnOv").click();
     else if (k === "t" || k === "T") toggleTimer();
     else if (k === "d" || k === "D") hud.classList.toggle("hidden");
-    else if (k === "f" || k === "F") {
-      if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
-      else document.exitFullscreen?.();
-    }
+    else if (k === "f" || k === "F") { e.preventDefault(); toggleFullscreen(); }
   });
 
   let x0 = null;
@@ -1137,6 +1182,7 @@
   buildOv();
   applyFrag(slides[0], 0);
   sync();
+  syncFs();
 })();
 </script>
 </body>
