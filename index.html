@@ -9,13 +9,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --ink: #122e2b;
-      --muted: #3f5f59;
-      --teal: #0d6b60;
-      --line: #d7e8e3;
-      --bg: #f3f7f6;
-      --card: #ffffff;
-      --dark: #0a2220;
+      --ink: #e8f4f1;
+      --muted: #9bb8b2;
+      --teal: #4fd4c4;
+      --line: rgba(255,255,255,.10);
+      --bg: #0b1615;
+      --card: #142422;
+      --dark: #071110;
       --hud: 3.2rem;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -182,7 +182,7 @@
     .en-name {
       font-size: clamp(1.35rem, 2.35vw, 1.8rem);
       font-weight: 800;
-      color: #063f38;
+      color: #d7fff6;
       letter-spacing: .03em;
       margin: .2rem 0 1.05rem;
       direction: ltr;
@@ -191,8 +191,8 @@
       line-height: 1.25;
       display: inline-block;
       padding: .55rem 1rem;
-      background: #cfeae3;
-      border: 2px solid #6eb5a8;
+      background: rgba(79,212,196,.12);
+      border: 2px solid rgba(79,212,196,.42);
       border-radius: .75rem;
     }
 
@@ -202,7 +202,7 @@
       min-width: 0;
       border-radius: 1.1rem;
       overflow: hidden;
-      background: #dfecea;
+      background: #152422;
       border: 1px solid var(--line);
       align-self: stretch;
     }
@@ -246,19 +246,19 @@
     .photos .photo.feet img {
       object-fit: contain;
       object-position: center center;
-      background: #cfe3f0;
+      background: #16323a;
     }
     .photos .photo.contain img {
       object-fit: contain;
       object-position: center center;
-      background: #dfecea;
+      background: #152422;
     }
     /* Wide landscape assets (e.g. flat feet comparison) */
     .photos.landscape .photo {
       aspect-ratio: 4 / 3;
     }
     .photos .photo.muscle {
-      background: #e8f1ef;
+      background: #152422;
     }
     .photos .photo.muscle img {
       object-fit: contain;
@@ -353,7 +353,7 @@
       height: 100%;
       min-height: 0;
       display: grid;
-      grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
       overflow: hidden;
     }
     .resume-copy {
@@ -432,26 +432,23 @@
       position: relative;
       min-width: 0;
       min-height: 0;
-      background:
-        radial-gradient(120% 80% at 50% 18%, #ffe36a 0%, #f5c518 42%, #e0a80a 100%);
-      display: grid;
-      place-items: center;
+      background: #071110;
       overflow: hidden;
     }
     .resume-photo {
-      width: min(68%, 22rem);
-      aspect-ratio: 1;
-      border-radius: 1.35rem;
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
       overflow: hidden;
-      background: #1a1a1a;
-      border: 7px solid #fff;
-      box-shadow: 0 22px 48px rgba(18, 20, 8, .28);
+      background: #071110;
+      border: 0;
+      box-shadow: none;
     }
     .resume-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 16%;
+      object-position: 78% 32%;
       display: block;
     }
 
@@ -502,7 +499,7 @@
       position: absolute; z-index: 45;
       left: .8rem; right: .8rem; bottom: calc(var(--hud) + .7rem);
       max-width: 720px; margin-inline: auto;
-      background: #fff; color: var(--ink);
+      background: var(--card); color: var(--ink);
       border: 1px solid var(--line); border-radius: 1rem;
       padding: 1rem 1.1rem; display: none;
     }
@@ -553,14 +550,16 @@
       .cover-inner { max-width: calc(100% - .5rem); }
       .resume-layout {
         grid-template-columns: 1fr;
-        grid-template-rows: minmax(0, .52fr) minmax(0, 1.48fr);
+        grid-template-rows: minmax(0, .62fr) minmax(0, 1.38fr);
       }
       .resume-visual { order: -1; }
       .resume-photo {
-        width: min(28vh, 168px);
-        border-width: 4px;
-        border-radius: .95rem;
+        width: 100%;
+        height: 100%;
+        border-width: 0;
+        border-radius: 0;
       }
+      .resume-photo img { object-position: 70% 28%; }
       .resume-copy {
         align-content: start;
         padding: .55rem .85rem .45rem;
@@ -640,7 +639,7 @@
           </div>
         </div>
         <div class="resume-visual frag" data-frag="0">
-          <div class="resume-photo"><img src="assets/presenter.jpg" alt="محیا یاری"></div>
+          <div class="resume-photo"><img src="assets/presenter-desk.jpg" alt="محیا یاری"></div>
         </div>
       </div>
     </section>
