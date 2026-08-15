@@ -439,7 +439,7 @@
       overflow: hidden;
     }
     .resume-photo {
-      width: min(72%, 26rem);
+      width: min(68%, 22rem);
       aspect-ratio: 1;
       border-radius: 1.35rem;
       overflow: hidden;
@@ -553,18 +553,26 @@
       .cover-inner { max-width: calc(100% - .5rem); }
       .resume-layout {
         grid-template-columns: 1fr;
-        grid-template-rows: minmax(0, .78fr) minmax(0, 1.22fr);
+        grid-template-rows: minmax(0, .52fr) minmax(0, 1.48fr);
       }
       .resume-visual { order: -1; }
       .resume-photo {
-        width: min(42vh, 220px);
-        border-width: 5px;
-        border-radius: 1.1rem;
+        width: min(28vh, 168px);
+        border-width: 4px;
+        border-radius: .95rem;
       }
-      .resume-copy { align-content: start; padding: .85rem .95rem .7rem; }
-      .resume-copy h1 { font-size: clamp(1.7rem, 8vw, 2.3rem); }
-      .resume-creds li { padding: .5rem .65rem; }
-      .resume-contact span { font-size: .82rem; padding: .3rem .65rem; }
+      .resume-copy {
+        align-content: start;
+        padding: .55rem .85rem .45rem;
+        overflow: auto;
+      }
+      .resume-copy h1 { font-size: clamp(1.45rem, 7vw, 1.95rem); }
+      .resume-role { margin: .2rem 0 .65rem; font-size: .95rem; }
+      .resume-creds { gap: .32rem; }
+      .resume-creds li { padding: .42rem .55rem; }
+      .resume-creds .v { font-size: .88rem; }
+      .resume-contact { margin-top: .55rem; gap: .28rem; }
+      .resume-contact span { font-size: .78rem; padding: .26rem .55rem; }
       h1 { font-size: clamp(1.45rem, 7vw, 2.2rem); }
       h2 { font-size: clamp(1.25rem, 5.5vw, 1.75rem); }
       .points li { font-size: clamp(.95rem, 3.6vw, 1.1rem); padding: .6rem .75rem; }
@@ -581,8 +589,9 @@
       .en-name { margin-bottom: .45rem; }
       .brand { margin-bottom: .28rem; }
       .resume-copy h1 { font-size: clamp(1.55rem, 4.4vh, 2.4rem); }
-      .resume-role { margin-bottom: .7rem; }
-      .resume-creds { gap: .35rem; }
+      .resume-role { margin-bottom: .55rem; }
+      .resume-creds { gap: .32rem; }
+      .resume-contact { margin-top: .7rem; }
     }
   </style>
 </head>
