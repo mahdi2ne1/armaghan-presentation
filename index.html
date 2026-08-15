@@ -217,6 +217,31 @@
     }
     .photo.legs img { object-position: center 38%; }
 
+    .photo.video-frame {
+      background: #0a1413;
+      position: relative;
+    }
+    .photo.video-frame video {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      background: #0a1413;
+    }
+    .layout.video-layout {
+      grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+    }
+    .layout.video-layout .lead {
+      max-width: 26ch;
+      margin-top: .55rem;
+    }
+    .layout.video-layout .points {
+      margin-top: .85rem;
+    }
+
     /* Side-by-side near-portrait frames: crop left/right, keep subject visible */
     .photos {
       display: grid;
@@ -565,6 +590,10 @@
         max-height: 100%;
       }
       .layout > .photo { height: 100%; }
+      .layout.video-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      }
       .layout > :not(.photo):not(.photos) { align-content: start; }
       .cover-inner { max-width: calc(100% - .5rem); }
       .resume-layout {
@@ -882,7 +911,7 @@
       </div>
     </section>
 
-    <section class="slide cover" data-title="کلاس اصلاحی" data-notes="تعریف کوتاه کلاس؛ بعد وارد جزئیات اصلاح شو.">
+    <section class="slide cover" data-title="کلاس اصلاحی" data-notes="تعریف کوتاه کلاس؛ بعد سه فیلم نمونه را نشان بده.">
       <div class="cover-bg class"></div>
       <div class="cover-inner wide">
         <div class="brand frag" data-frag="0">راه‌حل</div>
@@ -892,6 +921,57 @@
           <li class="frag" data-frag="2">تمرین هدفمند قامتی</li>
           <li class="frag" data-frag="3">همراهی خانواده</li>
         </ul>
+      </div>
+    </section>
+
+    <section class="slide" data-title="اصلاحی چیست" data-notes="فیلم توضیح اصلاحی را پخش کن؛ بعد بگو برای هر سن شکل خودش را دارد.">
+      <div class="layout video-layout">
+        <div>
+          <div class="brand frag" data-frag="0">توضیح</div>
+          <h2 class="frag" data-frag="0">اصلاحی یعنی چه؟</h2>
+          <p class="lead frag" data-frag="1">تمرین هدفمند برای اصلاح الگوی قامت؛ نه فقط نرمش عمومی.</p>
+          <ul class="points">
+            <li class="frag" data-frag="2">بر پایه ارزیابی فرد</li>
+            <li class="frag" data-frag="3">تمرکز روی ضعف و الگوی غلط</li>
+          </ul>
+        </div>
+        <div class="photo video-frame frag" data-frag="0">
+          <video src="assets/description.MOV" playsinline controls preload="metadata"></video>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="اصلاحی کودکان" data-notes="نشان بده کلاس کودک خشک نیست؛ اصلاح در قالب بازی و ورزش انجام می‌شود.">
+      <div class="layout video-layout">
+        <div>
+          <div class="brand frag" data-frag="0">کودکان</div>
+          <h2 class="frag" data-frag="0">در قالب بازی و ورزش</h2>
+          <p class="lead frag" data-frag="1">همان هدف اصلاح قامت، با زبانی که برای کودک جذاب است.</p>
+          <ul class="points">
+            <li class="frag" data-frag="2">حرکت هدفمند، فضای شاد</li>
+            <li class="frag" data-frag="3">همکاری بهتر کودک در جلسه</li>
+          </ul>
+        </div>
+        <div class="photo video-frame frag" data-frag="0">
+          <video src="assets/child.mp4" playsinline controls preload="metadata"></video>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="اصلاحی سالمندان" data-notes="بگو اصلاحی محدود به کودک نیست؛ با سن و توان فرد هماهنگ می‌شود.">
+      <div class="layout video-layout">
+        <div>
+          <div class="brand frag" data-frag="0">هر سن</div>
+          <h2 class="frag" data-frag="0">اصلاحی برای سالمندان</h2>
+          <p class="lead frag" data-frag="1">تمرین اصلاحی با سن، توان و نیاز همان فرد هماهنگ می‌شود.</p>
+          <ul class="points">
+            <li class="frag" data-frag="2">از کودک تا سالمند</li>
+            <li class="frag" data-frag="3">برنامه متناسب، نه نسخه یکسان</li>
+          </ul>
+        </div>
+        <div class="photo video-frame frag" data-frag="0">
+          <video src="assets/old.MOV" playsinline controls preload="metadata"></video>
+        </div>
       </div>
     </section>
 
@@ -997,7 +1077,7 @@
   <div class="hud" id="hud">
     <div class="g">
       <button type="button" id="prev">قبلی</button>
-      <div class="counter" id="counter">۱ از ۲۳</div>
+      <div class="counter" id="counter">۱ از ۲۶</div>
       <button type="button" id="next">بعدی</button>
     </div>
     <div class="g">
@@ -1058,6 +1138,20 @@
     applyFrag(slide, Math.max(levels.length - 1, 0));
   }
 
+  function pauseVideos(root = document) {
+    root.querySelectorAll("video").forEach(v => {
+      v.pause();
+      try { v.currentTime = 0; } catch (_) { /* ignore */ }
+    });
+  }
+
+  function playSlideVideos(slide) {
+    slide.querySelectorAll("video").forEach(v => {
+      const p = v.play();
+      if (p && typeof p.catch === "function") p.catch(() => { /* controls برای پخش دستی */ });
+    });
+  }
+
   function sync() {
     counter.textContent = `${fa(i + 1)} از ${fa(slides.length)}`;
     bar.style.width = `${((i + 1) / slides.length) * 100}%`;
@@ -1067,6 +1161,7 @@
 
   function show(n, dir = 1) {
     const cur = slides[i];
+    pauseVideos(cur);
     cur.classList.remove("active");
     i = (n + slides.length) % slides.length;
     const next = slides[i];
@@ -1075,6 +1170,7 @@
     next.classList.add("active");
     next.classList.remove("from-prev");
     applyFrag(next, 0);
+    playSlideVideos(next);
     sync();
   }
 
