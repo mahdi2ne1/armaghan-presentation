@@ -40,6 +40,7 @@ armaghan-presentation/
     ├── ab-intoe.jpg
     ├── ab-outtoe.jpg
     ├── ab-sitting.jpg
+    ├── presenter.jpg        # پرتره مدرس برای اسلاید رزومه
     ├── m-forward-head.jpg   # عضله درگیر
     ├── m-kyphosis.jpg
     ├── m-swayback.jpg
@@ -96,32 +97,33 @@ armaghan-presentation.zip   # بسته کامل برای دانلود
 
 ---
 
-## ۵) فهرست اسلایدها (۲۲ عدد)
+## ۵) فهرست اسلایدها (۲۳ عدد)
 
 | # | data-title | تصویر | موضوع |
 |---|------------|--------|--------|
-| 1 | عنوان | `ab-class.jpg` | معرفی ارمغان + کلاس اصلاحی |
-| 2 | پیام اصلی | — | تشخیص زودهنگام |
-| 3 | سر روبه‌جلو | `ab-forward-head.jpg` + `m-forward-head.jpg` | Forward Head Posture |
-| 4 | قوز پشتی | `ab-kyphosis.jpg` + `m-kyphosis.jpg` | Thoracic Kyphosis |
-| 5 | گودی زیاد کمر | `ab-swayback.jpg` + `m-swayback.jpg` | Lumbar Hyperlordosis |
-| 6 | شانه و لگن | `ab-uneven.jpg` + `m-uneven.jpg` | Shoulder / Pelvic Asymmetry |
-| 7 | کتف باله‌ای | `ab-scapula.jpg` + `m-scapula.jpg` | Scapular Winging |
-| 8 | پای ضربدری | `ab-knees.jpg` + `m-knees.jpg` | Genu Valgum |
-| 9 | پای پرانتزی | `ab-bow-legs.jpg` + `m-bow-legs.jpg` | Genu Varum |
-| 10 | کف پای صاف | `ab-flat-feet.jpg` + `m-flat-feet.jpg` | Pes Planus |
-| 11 | چرخش به داخل | `ab-intoe.jpg` + `m-intoe.jpg` | In-toeing |
-| 12 | چرخش به خارج | `ab-outtoe.jpg` + `m-outtoe.jpg` | Out-toeing |
-| 13 | نشستن غلط | `ab-sitting.jpg` | Prolonged Poor Sitting |
-| 14 | نشانه‌ها | — | چک‌لیست والدین |
-| 15 | کلاس اصلاحی | `ab-class.jpg` | تعریف کلاس |
-| 16 | ارزیابی | — | گام اول اصلاح |
-| 17 | برنامه شخصی | — | برنامه برای همان کودک |
-| 18 | تمرین در کلاس | `ab-class.jpg` | تقویت + الگوی حرکت |
-| 19 | نقش والدین | — | تمرین کوتاه در خانه |
-| 20 | تداوم | — | نتیجه با پیگیری |
-| 21 | تفاوت | — | ورزش عمومی ≠ اصلاح |
-| 22 | دعوت نهایی | `ab-class.jpg` | CTA پذیرش ارمغان |
+| 1 | عنوان | `ab-class.jpg` | معرفی ارمغان + کلاس اصلاحی + نام مدرس |
+| 2 | رزومه | `presenter.jpg` | اسلاید رزومه محیا یاری (چیدمان مدرن) |
+| 3 | پیام اصلی | — | تشخیص زودهنگام |
+| 4 | سر روبه‌جلو | `ab-forward-head.jpg` + `m-forward-head.jpg` | Forward Head Posture |
+| 5 | قوز پشتی | `ab-kyphosis.jpg` + `m-kyphosis.jpg` | Thoracic Kyphosis |
+| 6 | گودی زیاد کمر | `ab-swayback.jpg` + `m-swayback.jpg` | Lumbar Hyperlordosis |
+| 7 | شانه و لگن | `ab-uneven.jpg` + `m-uneven.jpg` | Shoulder / Pelvic Asymmetry |
+| 8 | کتف باله‌ای | `ab-scapula.jpg` + `m-scapula.jpg` | Scapular Winging |
+| 9 | پای ضربدری | `ab-knees.jpg` + `m-knees.jpg` | Genu Valgum |
+| 10 | پای پرانتزی | `ab-bow-legs.jpg` + `m-bow-legs.jpg` | Genu Varum |
+| 11 | کف پای صاف | `ab-flat-feet.jpg` + `m-flat-feet.jpg` | Pes Planus |
+| 12 | چرخش به داخل | `ab-intoe.jpg` + `m-intoe.jpg` | In-toeing |
+| 13 | چرخش به خارج | `ab-outtoe.jpg` + `m-outtoe.jpg` | Out-toeing |
+| 14 | نشستن غلط | `ab-sitting.jpg` | Prolonged Poor Sitting |
+| 15 | نشانه‌ها | — | چک‌لیست والدین |
+| 16 | کلاس اصلاحی | `ab-class.jpg` | تعریف کلاس |
+| 17 | ارزیابی | — | گام اول اصلاح |
+| 18 | برنامه شخصی | — | برنامه برای همان کودک |
+| 19 | تمرین در کلاس | `ab-class.jpg` | تقویت + الگوی حرکت |
+| 20 | نقش والدین | — | تمرین کوتاه در خانه |
+| 21 | تداوم | — | نتیجه با پیگیری |
+| 22 | تفاوت | — | ورزش عمومی ≠ اصلاح |
+| 23 | دعوت نهایی | `ab-class.jpg` | CTA + تماس و شبکه‌ها |
 
 هر اسلاید ناهنجاری = **یک موضوع** + نام انگلیسی تخصصی + حداکثر ۲ بولت علت + دو تصویر (وضعیت + عضلهٔ درگیر با لیبل انگلیسی).
 
@@ -131,6 +133,8 @@ armaghan-presentation.zip   # بسته کامل برای دانلود
 - `.photo` = یک قاب تصویر
 - `.photos` = دو قاب عمودی (وضعیت بالا، عضله پایین با `.photo.muscle`)
 - `.en-name` = نام تخصصی انگلیسی زیر عنوان فارسی
+- `.slide.resume` = اسلاید رزومه (متن + پرتره روی پنل زرد)
+- `.resume-photo` = قاب مربع پرتره مدرس (`assets/presenter.jpg`)
 
 ---
 
@@ -170,13 +174,14 @@ armaghan-presentation.zip   # بسته کامل برای دانلود
 - اسلاید = `<section class="slide" data-title="..." data-notes="...">`
 - نمایش تدریجی متن با `.frag` و `data-frag="0|1|2..."`
 - موتور اسلاید: کلیدها، سوایپ، فهرست، تایمر، یادداشت
-- شمارنده به فارسی: `۱ از ۱۷` (نه `۱۷/۱` گیج‌کننده)
+- شمارنده به فارسی: `۱ از ۲۳` (نه `۲۳/۱` گیج‌کننده)
 
 کلاس‌های مهم چیدمان:
-- `.slide` / `.slide.cover`
+- `.slide` / `.slide.cover` / `.slide.resume`
 - `.layout` = متن + عکس
 - `.layout.solo` = فقط متن وسط
 - `.photo` = قاب تصویر
+- `.resume-photo` = پرتره مربی در اسلاید رزومه
 - `.frag` = قطعه متن انیمیشنی
 
 ---
@@ -185,8 +190,8 @@ armaghan-presentation.zip   # بسته کامل برای دانلود
 
 به ترتیب اولویت:
 
-1. **با Chrome باز کنید و کل ۱۷ اسلاید را مرور کنید** (خوانایی متن، برش عکس، کنتراست).
-2. اگر نام ارائه‌دهنده / تلفن / زمان کلاس مشخص شد → فقط اسلاید ۱۷ (و در صورت نیاز ۱) را آپدیت کنید.
+1. **با Chrome باز کنید و کل ۲۳ اسلاید را مرور کنید** (خوانایی متن، برش عکس، کنتراست).
+2. اگر عکس رزومه دیگری مدنظر است → فقط `assets/presenter.jpg` را عوض کنید؛ چیدمان اسلاید ۲ همان می‌ماند.
 3. اگر عکس واقعی کلینیکی/کلاس (با رضایت) آمد → فقط `src` همان اسلاید را عوض کنید؛ قوانین طراحی را نشکنید.
 4. در صورت نیاز: export به PDF از چاپ مرورگر، یا کپی ساختار به Canva — **الزام نیست**.
 5. فونت آفلاین: Vazirmatn را محلی کنید اگر ارائه بدون اینترنت است.
@@ -222,7 +227,7 @@ armaghan-presentation.zip   # بسته کامل برای دانلود
 ## ۱۰) وضعیت فعلی
 
 - نسخهٔ فعلی: **آماده ارائه مینیمال** (پس از بازنویسی بر اساس فیدبک کاربر)
-- تعداد اسلاید: **۲۲**
+- تعداد اسلاید: **۲۳**
 - وابستگی بیلد: **ندارد**
 - ارتباط با ریپوی salar/raahbar: **ندارد** (اگر داخل workspace لاراول دیده می‌شود، اتفاقی است؛ جدا نگه دارید)
 

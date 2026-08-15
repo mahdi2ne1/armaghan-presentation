@@ -277,6 +277,11 @@
         linear-gradient(105deg, rgba(10,34,32,.82) 0%, rgba(10,34,32,.48) 55%, rgba(10,34,32,.26) 100%),
         url("assets/ab-class.jpg") center/cover no-repeat;
     }
+    .cover-bg.dense {
+      background:
+        linear-gradient(105deg, rgba(10,34,32,.88) 0%, rgba(10,34,32,.7) 55%, rgba(10,34,32,.42) 100%),
+        url("assets/ab-class.jpg") center/cover no-repeat;
+    }
     .cover-inner {
       position: relative; z-index: 1;
       justify-self: start;
@@ -294,6 +299,161 @@
       box-sizing: border-box;
     }
     .cover-inner.wide { max-width: min(28rem, calc(100% - 1.5rem)); }
+
+    .presenter {
+      margin-top: 1.15rem;
+      padding-top: .95rem;
+      border-top: 1px solid rgba(154, 223, 211, .32);
+    }
+    .presenter-name {
+      font-size: clamp(1.2rem, 2.1vw, 1.55rem);
+      font-weight: 800;
+      color: #f4fffb;
+      line-height: 1.35;
+    }
+    .presenter-role {
+      font-size: clamp(.95rem, 1.4vw, 1.08rem);
+      font-weight: 700;
+      color: #9adfd3;
+      margin-top: .28rem;
+      line-height: 1.55;
+    }
+
+    .contact {
+      margin-top: 1.05rem;
+      display: grid;
+      gap: .4rem;
+    }
+    .contact span {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: .3rem .5rem;
+      font-size: clamp(1rem, 1.45vw, 1.14rem);
+      font-weight: 700;
+      color: #9adfd3;
+    }
+    .contact .handle {
+      direction: ltr;
+      unicode-bidi: isolate;
+      color: #f4fffb;
+    }
+    .contact .fa-label { color: rgba(244, 255, 251, .72); font-size: .92em; }
+    .contact .fa-label::after { content: ":"; }
+
+    .slide.resume {
+      padding: 0;
+      background: #081614;
+      color: #f7fffb;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: minmax(0, 1fr);
+    }
+    .resume-layout {
+      height: 100%;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+      overflow: hidden;
+    }
+    .resume-copy {
+      display: grid;
+      align-content: center;
+      align-self: stretch;
+      min-width: 0;
+      min-height: 0;
+      overflow: hidden;
+      padding: clamp(1.15rem, 3.2vh, 2.5rem) clamp(1.25rem, 3.2vw, 2.6rem);
+    }
+    .resume-copy .brand { color: #f5c518; margin-bottom: .35rem; }
+    .resume-copy h1 {
+      font-size: clamp(2rem, 4.5vw, 3.45rem);
+      line-height: 1.15;
+      margin-bottom: .2rem;
+    }
+    .resume-role {
+      font-size: clamp(1.02rem, 1.55vw, 1.22rem);
+      font-weight: 700;
+      color: #9adfd3;
+      line-height: 1.6;
+      max-width: 28ch;
+      margin: .4rem 0 1.15rem;
+    }
+    .resume-creds {
+      list-style: none;
+      display: grid;
+      gap: .55rem;
+      max-width: 44ch;
+    }
+    .resume-creds li {
+      padding: .7rem .85rem .7rem 0.85rem;
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.08);
+      border-inline-start: 3px solid #f5c518;
+      border-radius: .85rem;
+    }
+    .resume-creds .k {
+      display: block;
+      font-size: .78em;
+      font-weight: 800;
+      color: #f5c518;
+      margin-bottom: .18rem;
+      letter-spacing: .01em;
+    }
+    .resume-creds .v {
+      display: block;
+      font-size: clamp(.95rem, 1.32vw, 1.08rem);
+      font-weight: 700;
+      color: rgba(247,255,251,.92);
+      line-height: 1.55;
+    }
+    .resume-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem .5rem;
+      margin-top: 1.1rem;
+    }
+    .resume-contact span {
+      font-size: clamp(.88rem, 1.22vw, 1.02rem);
+      font-weight: 700;
+      color: #9adfd3;
+      background: rgba(154,223,211,.1);
+      border: 1px solid rgba(154,223,211,.2);
+      border-radius: 999px;
+      padding: .38rem .8rem;
+    }
+    .resume-contact .handle {
+      direction: ltr;
+      unicode-bidi: isolate;
+      color: #f7fffb;
+    }
+
+    .resume-visual {
+      position: relative;
+      min-width: 0;
+      min-height: 0;
+      background:
+        radial-gradient(120% 80% at 50% 18%, #ffe36a 0%, #f5c518 42%, #e0a80a 100%);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+    .resume-photo {
+      width: min(72%, 26rem);
+      aspect-ratio: 1;
+      border-radius: 1.35rem;
+      overflow: hidden;
+      background: #1a1a1a;
+      border: 7px solid #fff;
+      box-shadow: 0 22px 48px rgba(18, 20, 8, .28);
+    }
+    .resume-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 16%;
+      display: block;
+    }
 
     /* Text / fragment motion only */
     .frag {
@@ -391,6 +551,20 @@
       .layout > .photo { height: 100%; }
       .layout > :not(.photo):not(.photos) { align-content: start; }
       .cover-inner { max-width: calc(100% - .5rem); }
+      .resume-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(0, .78fr) minmax(0, 1.22fr);
+      }
+      .resume-visual { order: -1; }
+      .resume-photo {
+        width: min(42vh, 220px);
+        border-width: 5px;
+        border-radius: 1.1rem;
+      }
+      .resume-copy { align-content: start; padding: .85rem .95rem .7rem; }
+      .resume-copy h1 { font-size: clamp(1.7rem, 8vw, 2.3rem); }
+      .resume-creds li { padding: .5rem .65rem; }
+      .resume-contact span { font-size: .82rem; padding: .3rem .65rem; }
       h1 { font-size: clamp(1.45rem, 7vw, 2.2rem); }
       h2 { font-size: clamp(1.25rem, 5.5vw, 1.75rem); }
       .points li { font-size: clamp(.95rem, 3.6vw, 1.1rem); padding: .6rem .75rem; }
@@ -406,6 +580,9 @@
       .points li { padding: .55rem .75rem; font-size: clamp(.95rem, 2.2vh, 1.12rem); }
       .en-name { margin-bottom: .45rem; }
       .brand { margin-bottom: .28rem; }
+      .resume-copy h1 { font-size: clamp(1.55rem, 4.4vh, 2.4rem); }
+      .resume-role { margin-bottom: .7rem; }
+      .resume-creds { gap: .35rem; }
     }
   </style>
 </head>
@@ -414,12 +591,48 @@
   <div class="bar"><i id="bar"></i></div>
   <div class="stage" id="stage">
 
-    <section class="slide cover active" data-title="عنوان" data-notes="سلام کوتاه و معرفی.">
+    <section class="slide cover active" data-title="عنوان" data-notes="سلام کوتاه؛ نامت را بگو و بگو اسلاید بعد رزومه است.">
       <div class="cover-bg"></div>
       <div class="cover-inner">
         <div class="brand frag" data-frag="0">مجموعه ورزشی ارمغان</div>
         <h1 class="frag" data-frag="0">کلاس اصلاحی کودکان</h1>
         <p class="lead frag" data-frag="1" style="margin-top:1rem">ارزیابی و اصلاح ناهنجاری‌های قامتی</p>
+        <div class="presenter frag" data-frag="2">
+          <div class="presenter-name">محیا یاری</div>
+          <div class="presenter-role">کارشناس ارشد آسیب‌شناسی و حرکات اصلاحی</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide resume" data-title="رزومه" data-notes="خودت را کوتاه معرفی کن. لیست را کامل نخوان؛ روی تخصص اصلاحی، تدریس و سابقه ورزشی تأکید کن. تماس برای اسلاید آخر است.">
+      <div class="resume-layout">
+        <div class="resume-copy">
+          <div class="brand frag" data-frag="0">مدرس کلاس اصلاحی</div>
+          <h1 class="frag" data-frag="0">محیا یاری</h1>
+          <p class="resume-role frag" data-frag="1">کارشناس ارشد آسیب‌شناسی و حرکات اصلاحی · مدرس دانشگاه</p>
+          <ul class="resume-creds">
+            <li class="frag" data-frag="2">
+              <span class="k">تحصیلات و تدریس</span>
+              <span class="v">مدرس دانشگاه · دبیر انجمن علمی دانشجویان علوم ورزشی دانشگاه آزاد اسلامی واحد مشهد</span>
+            </li>
+            <li class="frag" data-frag="2">
+              <span class="k">جودو و دفاع شخصی</span>
+              <span class="v">مربی و داور · دان ۲ جودو · دان ۳ دفاع شخصی · قهرمان کشور جودو · قهرمان استان جودو و دفاع شخصی</span>
+            </li>
+            <li class="frag" data-frag="3">
+              <span class="k">سایر مربیگری</span>
+              <span class="v">سالمندان · بدنسازی · بازی و ورزش کودک · بوچیا · ایروبیک · ژیمناستیک · ماساژ</span>
+            </li>
+          </ul>
+          <div class="resume-contact frag" data-frag="4">
+            <span>تماس <span class="handle">0992 490 7798</span></span>
+            <span>اینستاگرام <span class="handle">@mahya___yari</span></span>
+            <span>ایتا · روبیکا · تلگرام <span class="handle">Mahya_Yari1380@</span></span>
+          </div>
+        </div>
+        <div class="resume-visual frag" data-frag="0">
+          <div class="resume-photo"><img src="assets/presenter.jpg" alt="محیا یاری"></div>
+        </div>
       </div>
     </section>
 
@@ -732,12 +945,17 @@
       </div>
     </section>
 
-    <section class="slide cover" data-title="دعوت نهایی" data-notes="دعوت به ارزیابی در ارمغان.">
-      <div class="cover-bg"></div>
+    <section class="slide cover" data-title="دعوت نهایی" data-notes="دعوت به ارزیابی؛ شماره و اینستاگرام را اعلام کن.">
+      <div class="cover-bg dense"></div>
       <div class="cover-inner wide">
         <div class="brand frag" data-frag="0">مجموعه ورزشی ارمغان</div>
         <h1 class="frag" data-frag="0">ارزیابی کوتاه، مسیر روشن</h1>
-        <p class="lead frag" data-frag="1" style="margin-top:1rem">برای کلاس اصلاحی کودکان از پذیرش مجموعه راهنمایی بگیرید.</p>
+        <p class="lead frag" data-frag="1" style="margin-top:1rem">برای کلاس اصلاحی کودکان پیام دهید یا از پذیرش مجموعه راهنمایی بگیرید.</p>
+        <div class="contact frag" data-frag="2">
+          <span><span class="fa-label">تماس</span><span class="handle">0992 490 7798</span></span>
+          <span><span class="fa-label">اینستاگرام</span><span class="handle">@mahya___yari</span></span>
+          <span><span class="fa-label">ایتا · روبیکا · تلگرام</span><span class="handle">Mahya_Yari1380@</span></span>
+        </div>
       </div>
     </section>
 
@@ -753,7 +971,7 @@
   <div class="hud" id="hud">
     <div class="g">
       <button type="button" id="prev">قبلی</button>
-      <div class="counter" id="counter">۱ از ۲۲</div>
+      <div class="counter" id="counter">۱ از ۲۳</div>
       <button type="button" id="next">بعدی</button>
     </div>
     <div class="g">
