@@ -54,7 +54,10 @@
         filter .58s cubic-bezier(.22,1,.36,1),
         visibility .62s;
       display: grid;
-      padding: clamp(1.4rem, 3.2vw, 2.6rem);
+      grid-template-rows: minmax(0, 1fr);
+      min-height: 0;
+      overflow: hidden;
+      padding: clamp(1rem, 2.4vh, 2.2rem) clamp(1.1rem, 2.8vw, 2.4rem);
     }
     .slide.active {
       opacity: 1; visibility: visible; pointer-events: auto;
@@ -87,18 +90,32 @@
       padding: 0;
       background: var(--dark);
       color: #f4fffb;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: minmax(0, 1fr);
+    }
+    .slide.cover > .cover-bg,
+    .slide.cover > .cover-inner {
+      grid-area: 1 / 1;
     }
 
     .layout {
       height: 100%;
+      min-height: 0;
+      max-height: 100%;
       display: grid;
-      grid-template-columns: minmax(280px, 0.92fr) minmax(300px, 1.08fr);
-      gap: clamp(1.2rem, 3vw, 2.4rem);
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: clamp(0.9rem, 2.2vw, 2rem);
       align-items: stretch;
+      overflow: hidden;
     }
     .layout > :not(.photo):not(.photos) {
       display: grid;
       align-content: center;
+      min-width: 0;
+      min-height: 0;
+      overflow: hidden;
+      padding-inline-end: .15rem;
     }
     .layout.solo {
       grid-template-columns: 1fr;
@@ -107,31 +124,33 @@
     }
     .layout.solo > :not(.photo) {
       display: block;
+      max-height: 100%;
+      overflow: hidden;
     }
 
     .brand {
-      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      font-size: clamp(.92rem, 1.35vw, 1.1rem);
       font-weight: 700;
       color: var(--teal);
-      margin-bottom: .55rem;
+      margin-bottom: .4rem;
     }
     .cover .brand { color: #9adfd3; }
 
     h1 {
-      font-size: clamp(2rem, 4.6vw, 3.4rem);
+      font-size: clamp(1.65rem, 3.8vw, 3.1rem);
       font-weight: 800;
       line-height: 1.25;
       letter-spacing: -.01em;
     }
     h2 {
-      font-size: clamp(1.7rem, 3.4vw, 2.55rem);
+      font-size: clamp(1.35rem, 2.8vw, 2.3rem);
       font-weight: 800;
       line-height: 1.3;
-      margin-bottom: 1rem;
+      margin-bottom: .55rem;
     }
     .lead {
-      font-size: clamp(1.15rem, 1.8vw, 1.35rem);
-      line-height: 1.75;
+      font-size: clamp(1.02rem, 1.55vw, 1.28rem);
+      line-height: 1.65;
       color: var(--muted);
       max-width: 28ch;
       font-weight: 600;
@@ -141,25 +160,25 @@
     .points {
       list-style: none;
       display: grid;
-      gap: .7rem;
-      margin-top: .3rem;
+      gap: .55rem;
+      margin-top: .15rem;
     }
     .points li {
-      font-size: clamp(1.15rem, 1.7vw, 1.35rem);
+      font-size: clamp(1rem, 1.45vw, 1.22rem);
       font-weight: 700;
       color: var(--ink);
-      padding: .85rem 1.05rem;
+      padding: .7rem .9rem;
       background: var(--card);
       border: 1px solid var(--line);
-      border-radius: .9rem;
+      border-radius: .85rem;
     }
 
     .en-name {
-      font-size: clamp(.98rem, 1.45vw, 1.18rem);
+      font-size: clamp(.9rem, 1.25vw, 1.1rem);
       font-weight: 700;
       color: var(--teal);
       letter-spacing: .02em;
-      margin: -.45rem 0 .95rem;
+      margin: -.15rem 0 .7rem;
       direction: ltr;
       unicode-bidi: isolate;
       text-align: left;
@@ -167,8 +186,9 @@
 
     .photo {
       height: 100%;
-      min-height: 280px;
-      border-radius: 1.2rem;
+      min-height: 0;
+      min-width: 0;
+      border-radius: 1.1rem;
       overflow: hidden;
       background: #dfecea;
       border: 1px solid var(--line);
@@ -177,23 +197,30 @@
     .photo img {
       width: 100%;
       height: 100%;
+      max-width: 100%;
+      max-height: 100%;
       object-fit: cover;
       object-position: center;
       display: block;
     }
     .photo.legs img { object-position: center 38%; }
 
+    /* Two images share the photo column — stacked, height-bounded */
     .photos {
       display: grid;
-      grid-template-rows: 1.08fr 0.92fr;
-      gap: .65rem;
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: minmax(0, 1.08fr) minmax(0, 0.92fr);
+      gap: .55rem;
       height: 100%;
-      min-height: 280px;
+      min-height: 0;
+      max-height: 100%;
       align-self: stretch;
+      overflow: hidden;
     }
     .photos .photo {
-      height: auto;
+      height: 100%;
       min-height: 0;
+      min-width: 0;
     }
     .photos .photo.muscle {
       background: #e8f1ef;
@@ -201,6 +228,7 @@
     .photos .photo.muscle img {
       object-fit: contain;
       object-position: center;
+      padding: .25rem;
     }
 
     .cover-bg {
@@ -216,13 +244,21 @@
     }
     .cover-inner {
       position: relative; z-index: 1;
-      height: 100%;
+      justify-self: start;
+      align-self: stretch;
+      height: auto;
+      max-height: 100%;
+      min-height: 0;
+      width: auto;
+      max-width: min(22rem, calc(100% - 1.5rem));
       display: grid;
       align-content: center;
-      padding: clamp(1.6rem, 4vw, 3.2rem);
-      max-width: 18ch;
+      justify-items: start;
+      padding: clamp(1.2rem, 3.5vh, 2.8rem) clamp(1.4rem, 3.8vw, 3rem);
+      overflow: hidden;
+      box-sizing: border-box;
     }
-    .cover-inner.wide { max-width: 24ch; }
+    .cover-inner.wide { max-width: min(28rem, calc(100% - 1.5rem)); }
 
     /* Text / fragment motion only */
     .frag {
@@ -298,13 +334,33 @@
     .ov .t { font-size: 1.02rem; font-weight: 800; margin-top: .25rem; }
 
     @media (max-width: 860px) {
-      .layout { grid-template-columns: 1fr; }
-      .photo { min-height: 240px; height: 42vh; order: -1; }
-      .photos { order: -1; min-height: 0; height: auto; grid-template-rows: none; grid-template-columns: 1fr 1fr; }
-      .photos .photo { height: 28vh; min-height: 140px; }
-      .cover-inner { max-width: 100%; }
+      .slide { padding: .85rem .85rem .7rem; }
+      .layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        gap: .7rem;
+      }
+      .photo, .photos { order: -1; height: 100%; min-height: 0; }
+      .photos {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-rows: minmax(0, 1fr);
+      }
+      .layout > :not(.photo):not(.photos) { align-content: start; }
+      .cover-inner { max-width: calc(100% - .5rem); }
+      h1 { font-size: clamp(1.45rem, 7vw, 2.2rem); }
+      h2 { font-size: clamp(1.25rem, 5.5vw, 1.75rem); }
+      .points li { font-size: clamp(.95rem, 3.6vw, 1.1rem); padding: .6rem .75rem; }
       :root { --hud: 4rem; }
       .stage { inset: 0 0 4rem 0; }
+    }
+
+    @media (max-height: 760px) {
+      h1 { font-size: clamp(1.45rem, 4.2vh, 2.4rem); }
+      h2 { font-size: clamp(1.2rem, 3.6vh, 1.85rem); margin-bottom: .4rem; }
+      .points { gap: .4rem; }
+      .points li { padding: .55rem .75rem; font-size: clamp(.95rem, 2.2vh, 1.12rem); }
+      .en-name { margin-bottom: .45rem; }
+      .brand { margin-bottom: .28rem; }
     }
   </style>
 </head>
