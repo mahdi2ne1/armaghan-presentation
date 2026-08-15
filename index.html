@@ -243,6 +243,20 @@
     .photos .photo.legs img {
       object-position: center 30%;
     }
+    .photos .photo.feet img {
+      object-fit: contain;
+      object-position: center center;
+      background: #cfe3f0;
+    }
+    .photos .photo.contain img {
+      object-fit: contain;
+      object-position: center center;
+      background: #dfecea;
+    }
+    /* Wide landscape assets (e.g. flat feet comparison) */
+    .photos.landscape .photo {
+      aspect-ratio: 4 / 3;
+    }
     .photos .photo.muscle {
       background: #e8f1ef;
     }
@@ -556,7 +570,7 @@
           </ul>
         </div>
         <div class="photos frag" data-frag="0">
-          <div class="photo"><img src="assets/ab-flat-feet.jpg" alt=""></div>
+          <div class="photo feet"><img src="assets/ab-flat-feet.jpg" alt=""></div>
           <div class="photo muscle"><img src="assets/m-flat-feet.jpg" alt="Tibialis Posterior"></div>
         </div>
       </div>
